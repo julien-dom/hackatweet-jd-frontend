@@ -18,8 +18,10 @@ function SignIn() {
         <h3 className={styles.title}>
           Connect to Hackatweet
         </h3>
-        <input type="text" name="username" onChange={(e) => setUserName(e.target.value)} value={username}/>
-        <input type="password" name="password" onChange={(e) => setPassword(e.target.value)} value={password}/>
+        <input className={styles.inputUser} type="text" name="username" onChange={(e) => setUserName(e.target.value)} value={username}/>
+        <input className={styles.inputPassword}type="password" name="password" onChange={(e) => setPassword(e.target.value)} value={password}/>
+        <div className={styles.btnSignIn}>Sign in</div>
+
       </main>
     </div>
   );

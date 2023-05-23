@@ -1,0 +1,29 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnSignIn  {
+    color: #151f2b;
+    width: 200px;
+    height: 40px;
+    background-color: white;
+    border: #151f2b 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.title, .inputUser, .inputPassword {
+    margin-bottom: 1rem;
+}
+
+.inputPassword, .inputUser {
+    width: 200px;
+}

@@ -45,7 +45,7 @@ const showModalSignUp = () => {
       </div>
 
       {isModalInVisible && <div id="react-modals">
-        <Modal getContainer="#react-modals" className={styles.modal} visible={isModalInVisible} closable={true} footer={null} maskClosable={true} onCancel={showModalSignIn}>
+        <Modal getContainer="#react-modals"  className={styles.modal} visible={isModalInVisible} closable={true} footer={null} maskClosable={true} onCancel={showModalSignIn} >
           {modalInContent}
         </Modal>
       </div>}

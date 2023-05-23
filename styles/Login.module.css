@@ -71,3 +71,7 @@
     font-weight: bold;
     font-size: 14px;
 }
+
+.ant-modal-content{
+    background-color: #151f2b;
+}
