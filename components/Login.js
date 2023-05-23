@@ -1,9 +1,10 @@
 import styles from '../styles/Login.module.css';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { Modal } from 'antd';
-import SignIn
- from './SignIn';
+import { Modal, ConfigProvider } from 'antd';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
+
 function Login() {
 const [isModalInVisible, setIsModalInVisible] = useState(false);
 const [isModalUpVisible, setIsModalUpVisible] = useState(false);
@@ -13,7 +14,6 @@ const showModalSignIn = () => {
     setIsModalInVisible(!isModalInVisible);
   };
 
-let modalInContent = <SignIn />
 
 // modal signUp
 const showModalSignUp = () => {
@@ -45,15 +45,16 @@ const showModalSignUp = () => {
       </div>
 
       {isModalInVisible && <div id="react-modals">
-        <Modal getContainer="#react-modals"  className={styles.modal} visible={isModalInVisible} closable={true} footer={null} maskClosable={true} onCancel={showModalSignIn} >
-          {modalInContent}
+        <Modal getContainer="#react-modals" 
+        // className={styles.modal} 
+        visible={isModalInVisible} footer={null}  onCancel={showModalSignIn} >
+            <SignIn />
         </Modal>
       </div>}
 
-
       {isModalUpVisible && <div id="react-modals">
-        <Modal getContainer="#react-modals" className={styles.modal} visible={isModalUpVisible} closable={true} footer={null} maskClosable={true} onCancel={showModalSignUp}>
-          {modalUpContent}
+        <Modal getContainer="#react-modals" visible={isModalUpVisible} footer={null} onCancel={showModalSignUp}>
+          <SignUp />
         </Modal>
       </div>}
 

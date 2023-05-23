@@ -1,22 +1,71 @@
 .main {
   display: flex;
+  flex-direction: row;
+  background-color: #151f2b;
+  padding: 2rem;
+}
+
+.leftPart {
+  height: 100vh;
+  width: 20vw;
+  border-right: 0.5px solid lightgray;
+  display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+.middlePart {
+  height: 100vh;
+  width: 50vw;
+}
+
+.rightPart {
+  height: 100vh;
+  width: 30vw;
+  border-left: 0.5px solid lightgray;
+}
+
+.img {
+  width: 50px;
+  height: 100%;
+  margin-right: 10px;
+}
+
+.logoContainer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.usernameBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+ color: white;
+ margin-bottom: 0;
+ font-weight: bold;
+}
+
+.username {
+  color: grey;
+  font-size: 14px;
+}
+
+.logoutBtn {
+  margin-top: 1rem;
+  color: white;
+  width: 33%;
+  height: 30px;
+  background-color: #151f2b;
+  border: 1px solid lightgray;
+  display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding: 4rem 0;
+  border-radius: 25px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 12px;
 }
 
-.title {
-  line-height: 1.15;
-  font-size: 4rem;
-}
-
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover, .title a:focus, .title a:active {
-  text-decoration: underline;
-}
