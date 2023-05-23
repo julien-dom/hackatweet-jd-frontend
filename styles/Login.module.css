@@ -1,0 +1,73 @@
+
+.main {
+    display: flex;
+    flex-direction: row;
+}
+
+.leftPart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35vw;
+    height: 100vh;
+    background-image: url(../public/twitter_background.png);
+}
+
+.rightPart {
+    padding: 2rem;
+    width: 65vw;
+    height: 100vh;
+    background-color: #151f2b;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-family: 'MontHeavy';
+}
+
+.h1 {
+    color: white;
+    font-size: 4rem;
+    width: 50%;
+}
+
+.h2 {
+    color: white;
+}
+
+.btnSignUp {
+    color: white;
+    width: 200px;
+    height: 40px;
+    background-color: #3e9af0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.textAccount{
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+
+}
+
+.btnSignIn {
+    color: #3e9af0;
+    width: 200px;
+    height: 40px;
+    background-color: #151f2b;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+}
