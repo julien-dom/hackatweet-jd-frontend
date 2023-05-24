@@ -1,0 +1,31 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+
+.h3 {
+    color: white;
+}
+
+.hashtagsContainer {
+    background-color: #1d2732;
+    border-radius: 20px;
+    width: 98%;
+    padding: 1rem;
+}
+
+.hashtagsBox {
+    margin-bottom: 2rem;
+}
+
+.hashtag{
+    color: white;
+    font-weight: bold;
+}
+
+.hashCount {
+    color: grey;
+    font-size: 14px;
+}

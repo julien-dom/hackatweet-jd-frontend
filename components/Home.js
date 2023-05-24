@@ -1,6 +1,8 @@
 import styles from '../styles/Home.module.css';
 import Image from 'next/image';
 import Tweet from './Tweet';
+import LastTweets from './LastTweets';
+import Trends from './Trends';
 
 function Home() {
   return (
@@ -35,11 +37,12 @@ function Home() {
         <div className={styles.middlePart}>
           <div className={styles.tweetContainer}>
             <Tweet />
+            <LastTweets />
           </div>
         </div>
 
         <div className={styles.rightPart}>
-
+            <Trends />
         </div>
       </main>
     </div>
