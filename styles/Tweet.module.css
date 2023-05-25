@@ -2,45 +2,56 @@
     display: flex;
     flex-direction: column;
     padding: 1rem;
+    border-bottom: 0.5px solid lightgray;
 }
 
-.tweetBtnContainer {
+.userContainer {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-end;
+    margin-top: 1rem;
 }
 
-.h3 {
+.name {
     color: white;
-}
-
-.tweetInput {
-    width: 75%;
-    height: 30px;
-    align-self: center;
-    background-color: #151f2b;
-    border:none;
-    border-bottom: 1px solid lightgray;
-    margin-bottom: 1rem;
-    color: lightgray;
-}
-
-.tweetCount {
-    color: white;
-    margin-right: 1rem;
-}
-
-.tweetBtn {
-    color: white;
-    width: 100px;
-    height: 30px;
-    background-color: #3e9af0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 25px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
-    font-size: 12px;
+    margin-right: 10px;
+}
+
+.username {
+    color: grey;
+    font-size: 14px;
+    margin-right: 10px;
+
+}
+.point {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: grey;
+    margin-right: 10px;
+}
+
+.img {
+    width: 50px;
+    height: 100%;
+    margin-right: 10px;
+}
+
+.tweet {
+    color: white;
+}
+.iconContainer{
+    display: flex;
+    flex-direction: row;}
+
+.icon {
+    color: white;
+}
+
+.heartCount{
+    margin-left: 5px;
+    margin-right: 10px;
+    color: white;
 }

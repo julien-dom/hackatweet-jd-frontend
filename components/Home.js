@@ -1,7 +1,7 @@
 import styles from '../styles/Home.module.css';
 import Image from 'next/image';
-import Tweet from './Tweet';
-import LastTweets from './LastTweets';
+import Tweet from './LastTweets';
+import LastTweets from './Tweet';
 import Trends from './Trends';
 
 function Home() {
@@ -36,9 +36,15 @@ function Home() {
 
         <div className={styles.middlePart}>
           <div className={styles.tweetContainer}>
-            <Tweet />
-            <LastTweets />
+              <h3 className={styles.h3}>Home</h3>
+              <input className= {styles.tweetInput} placeholder="What's Up?" type="text"></input>
+              <div className={styles.tweetBtnContainer}>
+                <p className={styles.tweetCount}>0/280</p>
+                <div className={styles.tweetBtn}>Tweet</div>
+              </div>
           </div>
+          <LastTweets />
+
         </div>
 
         <div className={styles.rightPart}>
