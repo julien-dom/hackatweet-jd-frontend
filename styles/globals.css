@@ -25,3 +25,13 @@ body {
   background-color: #15202b;
   border-radius: 10px;
 }
+
+/* .react-form-input:invalid {
+  border: 2px solid red;
+  color: red;
+}
+
+.react-form-input:valid {
+  border: 2px solid green;
+  color: green;
+} */
