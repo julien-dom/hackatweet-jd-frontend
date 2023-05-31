@@ -18,13 +18,14 @@ export default function useForm({
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = (e) => {
+    console.log(formData);
     e.preventDefault();
     // handle validation
     if (useValidation && !handleValidation(formData)) {
       handleSubmit(null);
       return;
     }
-    handleSubmit(e);
+    handleSubmit(formData);
   };
   return {
     formData,
