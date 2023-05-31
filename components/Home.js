@@ -3,8 +3,20 @@ import Image from 'next/image';
 import Tweet from './LastTweets';
 import LastTweets from './Tweet';
 import Trends from './Trends';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../reducers/users';
+import { useRouter } from 'next/router';
 
 function Home() {
+  const user = useSelector((state) => state.users.value);
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    dispatch(logout())
+    router.push('/index');
+  }
+
   return (
     <div>
       <main className={styles.main}>
@@ -26,11 +38,11 @@ function Home() {
                 className={styles.img}
               />
               <div className={styles.usernameBox}>
-                <p className={styles.name}>John</p>
-                <p className={styles.username}>@JohnCena</p>
+                <p className={styles.name}>{user.firstname}</p>
+                <p className={styles.username}>@{user.username}</p>
               </div>
             </div>
-            <div className={styles.logoutBtn}>Logout</div>
+            <div className={styles.logoutBtn} onClick={()=> handleLogout()}>Logout</div>
           </div>
         </div>
 

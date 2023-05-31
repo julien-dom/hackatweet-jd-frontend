@@ -1,8 +1,11 @@
 import styles from '../styles/Tweet.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { useSelector } from 'react-redux';
 
 function Tweet() {
+  const user = useSelector((state) => state.users.value);
+
   return (
     <div>
       <main className={styles.main}>
@@ -12,8 +15,8 @@ function Tweet() {
               alt="Egg"
               className={styles.img}
             />
-            <p className={styles.name}>John</p>
-            <p className={styles.username}>@JohnCena</p>
+            <p className={styles.name}>{user.firstname}</p>
+            <p className={styles.username}>@{user.username}</p>
             <p className={styles.point}>.</p>
             <p className={styles.username}>a few seconds ago</p>
         </div>
