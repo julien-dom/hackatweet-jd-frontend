@@ -10,7 +10,7 @@ export const tweetsSlice = createSlice({
   initialState,
     reducers: {
     loadTweet: (state, action) => {
-    state.value.push(action.payload)
+    state.value = action.payload
     console.log('reducer tweets', state.value)
     console.log('reducer tweets action', action.payload)
 

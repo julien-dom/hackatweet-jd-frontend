@@ -4,9 +4,10 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
-function Tweet() {
+function Tweet(props) {
   const user = useSelector((state) => state.users.value);
-  
+  console.log('props is', props)
+
   return (
     <div>
       <main className={styles.main}>
@@ -16,12 +17,12 @@ function Tweet() {
               alt="Egg"
               className={styles.img}
             />
-            <p className={styles.name}>{user.firstname}</p>
-            <p className={styles.username}>@{user.username}</p>
+            {/* <p className={styles.name}>{props.author.firstname}</p>
+            <p className={styles.username}>@{props.author.username}</p> */}
             <p className={styles.point}>.</p>
-            <p className={styles.username}>a few seconds ago</p>
+            <p className={styles.username}>{props.date}</p>
         </div>
-        <p className= {styles.tweet}>YOU CAN'T SEE ME ! #cenation</p>
+        <p className= {styles.tweet}>{props.content}</p>
         <div className= {styles.iconContainer}>
             <FontAwesomeIcon icon={faHeart} className={styles.icon} />
             <span className={styles.heartCount}>0</span>

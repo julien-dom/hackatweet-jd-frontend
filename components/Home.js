@@ -1,7 +1,5 @@
 import styles from '../styles/Home.module.css';
-import Image from 'next/image';
-import Tweet from './LastTweets';
-import LastTweets from './Tweet';
+import LastTweets from './LastTweets';
 import Trends from './Trends';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../reducers/users';
