@@ -47,6 +47,8 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
     font-size: 14px;
+    cursor: pointer;
+
 }
 
 .textAccount{
@@ -70,6 +72,7 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
     font-size: 14px;
+    cursor: pointer;
 }
 
 

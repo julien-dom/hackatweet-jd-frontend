@@ -2,7 +2,7 @@ import styles from '../styles/SignUp.module.css';
 import Image from 'next/image';
 import { useState } from 'react';
 import useForm from "../hooks/useForm";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../reducers/users';
 import { useRouter } from 'next/router';
 
@@ -29,6 +29,7 @@ function SignUp() {
     // const [username, setUserName] = useState('');
     // const [password, setPassword] = useState('');
     const dispatch = useDispatch();
+    const user = useSelector((state) => state.users.value);
 
     const router = useRouter();
     if (user.token) {

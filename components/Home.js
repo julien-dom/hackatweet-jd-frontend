@@ -6,29 +6,51 @@ import Trends from './Trends';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../reducers/users';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
+import { useState } from 'react';
 
 function Home() {
   const user = useSelector((state) => state.users.value);
   const dispatch = useDispatch();
   const router = useRouter();
+  const [tweet, setTweet] = useState('')
 
   const handleLogout = () => {
     dispatch(logout())
-    router.push('/index');
+    router.push('/');
   }
+
+  const handleTweet = () => {
+    console.log('tweeted', tweet )
+    fetch('http://localhost:3000/tweets', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token: user.token, tweet: tweet }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      if (data.result) {
+        console.log('tweeted ok', data.tweet);
+        setTweet('')
+      }
+    });
+  }
+
 
   return (
     <div>
       <main className={styles.main}>
         <div className={styles.leftPart}>
           <div className={styles.logoBox}>
-          <img 
+          <Link href="/"><img 
+          
             src="/logo-twitter.png"
             alt="Logo"
             width={75}
             height={61.125}
             className={styles.logo}
-          />
+          /></Link>
           </div>
           <div className={styles.userContainer}>
             <div className={styles.logoContainer}>
@@ -49,10 +71,10 @@ function Home() {
         <div className={styles.middlePart}>
           <div className={styles.tweetContainer}>
               <h3 className={styles.h3}>Home</h3>
-              <input className= {styles.tweetInput} placeholder="What's Up?" type="text"></input>
+              <input className= {styles.tweetInput} placeholder="What's Up?" type="text" onChange={(e) => setTweet(e.target.value)} value={tweet}></input>
               <div className={styles.tweetBtnContainer}>
-                <p className={styles.tweetCount}>0/280</p>
-                <div className={styles.tweetBtn}>Tweet</div>
+                <p className={styles.tweetCount}>{tweet.length}/280</p>
+                <div className={styles.tweetBtn} onClick={()=> handleTweet()}>Tweet</div>
               </div>
           </div>
           <LastTweets />
