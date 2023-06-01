@@ -5,9 +5,10 @@ import LastTweets from './Tweet';
 import Trends from './Trends';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../reducers/users';
+import { loadTweet } from '../reducers/tweets';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Home() {
   const user = useSelector((state) => state.users.value);
@@ -20,7 +21,26 @@ function Home() {
     router.push('/');
   }
 
+  //USEEFFECT Qui charge tous les tweets
+
+  useEffect(() => {
+    if (!user.token){
+      return
+    }
+
+    fetch(`http://localhost:3000/tweets/all/${user.token}`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('all tweets data', data)
+        dispatch(loadTweet(data))
+        });
+  }, []);
+
   const handleTweet = () => {
+    if (tweet.length > 280){
+      alert('Tweet too long')
+
+    }
     console.log('tweeted', tweet )
     fetch('http://localhost:3000/tweets', {
       method: 'POST',

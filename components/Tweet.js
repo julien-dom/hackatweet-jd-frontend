@@ -2,10 +2,11 @@ import styles from '../styles/Tweet.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 
 function Tweet() {
   const user = useSelector((state) => state.users.value);
-
+  
   return (
     <div>
       <main className={styles.main}>
