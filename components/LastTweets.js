@@ -8,7 +8,7 @@ function LastTweets() {
   console.log('allTweets', allTweets)
 
 
-  const tweets = allTweets.map((data, i) => {
+  const tweets = allTweets?.map((data, i) => {
     console.log('tweets mapdata', data)
     return <Tweet key={i} {...data} />;
   });[]
