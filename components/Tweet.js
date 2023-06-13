@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 
 function Tweet(props) {
   const user = useSelector((state) => state.users.value);
+  const [isLiked, setIsLiked] = useState(false);
+
   console.log('props is', props)
 
   // conversion heure
@@ -29,6 +31,24 @@ function Tweet(props) {
     console.log(Math.round(daysAgo) + ' days ago');
   }
 
+  // Fonction Clic heart
+  const clickHeart = () => {
+    console.log('coeur clic')
+    fetch('http://localhost:3000/tweets/like', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token: user.token, tweetId: props._id }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      if (data.result) {
+        console.log('like add');
+      }
+    });
+    setIsLiked(!isLiked)
+  }
+  
   return (
     <div>
       <main className={styles.main}>
@@ -51,8 +71,8 @@ function Tweet(props) {
         </div>
         <p className= {styles.tweet}>{props.content}</p>
         <div className= {styles.iconContainer}>
-            <FontAwesomeIcon icon={faHeart} className={styles.icon} />
-            <span className={styles.heartCount}>0</span>
+            <FontAwesomeIcon icon={faHeart} onClick={()=>clickHeart()} color={isLiked ? 'red' : 'white'}/>
+            <span className={styles.heartCount}>{props.likes.length}</span>
         </div>
       </main>
     </div>

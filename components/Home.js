@@ -32,7 +32,7 @@ function Home() {
         console.log('all tweets data', data)
         dispatch(loadTweet(data))
         });
-  }, []);
+  }, [tweet]);
 
   const handleTweet = () => {
     if (tweet.length > 280){
