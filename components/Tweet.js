@@ -1,8 +1,9 @@
 import styles from '../styles/Tweet.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 function Tweet(props) {
   const user = useSelector((state) => state.users.value);
@@ -31,6 +32,13 @@ function Tweet(props) {
     console.log(Math.round(daysAgo) + ' days ago');
   }
 
+  const formattedContent = props.content.split(' ').map((word, i) => {
+    if (word.startsWith('#') && word.length > 1) {
+      return <span key={i} style={{ fontWeight: 'bold' }}><Link href={`/hashtag/${word.slice(1)}`}>{word}</Link> </span>;
+    }
+    return word + ' ';
+  });
+
   // Fonction Clic heart
   const clickHeart = () => {
     console.log('coeur clic')
@@ -47,6 +55,23 @@ function Tweet(props) {
       }
     });
     setIsLiked(!isLiked)
+  }
+  
+
+  // delete 
+  const deleteTweet = () => {
+    fetch('http://localhost:3000/tweets', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token: user.token, tweetId: props._id }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      if (data.result) {
+        console.log('tweet deleted');
+      }
+    });
   }
   
   return (
@@ -69,10 +94,11 @@ function Tweet(props) {
                 <p className={styles.username}>{Math.round(daysAgo)} days ago</p>
               )}</p>
         </div>
-        <p className= {styles.tweet}>{props.content}</p>
+        <p className= {styles.tweet}>{formattedContent}</p>
         <div className= {styles.iconContainer}>
             <FontAwesomeIcon icon={faHeart} onClick={()=>clickHeart()} color={isLiked ? 'red' : 'white'}/>
             <span className={styles.heartCount}>{props.likes.length}</span>
+            {props.author.username === user.username && <FontAwesomeIcon icon={faTrashCan} className={styles.icon} onClick={()=>deleteTweet()}/>}
         </div>
       </main>
     </div>
